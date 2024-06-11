@@ -3,7 +3,9 @@ import re
 import sys
 import inspect
 import logging
-
+if not hasattr(inspect, 'getargspec'):
+    inspect.getargspec = inspect.getfullargspec
+    
 from .core import request, response, HTTPResponse, HTTPError
 
 try:
